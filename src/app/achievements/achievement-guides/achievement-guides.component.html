@@ -1,0 +1,37 @@
+<div class="mdc-grid">
+    <achievement [achievement]="achievement" [game]="game" [navigate]="false"></achievement>
+
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-8">
+
+            <div class="centered">
+                <a *ngIf="!user" (click)="signIn()" mat-button class="white-button">Sign in and add a guide</a>
+                <a *ngIf="user" (click)="buildCommentModal()" mat-button class="white-button">Add a guide</a>
+            </div>
+            <div scrollable (scrollPosition)="scrollHandler($event)">
+                <comment *ngFor="let guide of page.data| async; let i = index" [data]="guide"></comment>
+                <p *ngIf="page.done | async" class="center"> _______</p>
+                <loading-spinner  *ngIf="page.loading | async" class="center"></loading-spinner>
+            </div>
+
+            <div class="centered" style="margin-top: 5rem;">
+                <div class="centered"> Need help or looking for a group ?</div>
+                <discord></discord>
+            </div>
+        </div>
+
+        <div class="mdc-layout-grid__cell--span-4">
+            <div class="card spacing-top">
+                <div>First Achievers</div>
+                <div class="spacing-top"></div>
+                <achievement-user *ngFor="let user of firstAchievers| async; let i = index" (click)="redirect(user)" [index]="i"  [data]="user"></achievement-user>
+            </div>
+
+            <div class="card spacing-top">
+                <div>Latest Achievers</div>
+                <div class="spacing-top"></div>
+                <achievement-user *ngFor="let user of latestAchievers| async; let i = index" (click)="redirect(user)" [index]="i"  [data]="user"></achievement-user>
+            </div>
+        </div>
+    </div>
+</div>

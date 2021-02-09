@@ -1,0 +1,48 @@
+[debug] [2021-01-28T21:46:12.771Z] ----------------------------------------------------------------------
+[debug] [2021-01-28T21:46:12.773Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2021-01-28T21:46:12.774Z] CLI Version:   9.2.2
+[debug] [2021-01-28T21:46:12.774Z] Platform:      darwin
+[debug] [2021-01-28T21:46:12.774Z] Node Version:  v15.6.0
+[debug] [2021-01-28T21:46:12.775Z] Time:          Thu Jan 28 2021 21:46:12 GMT+0000 (Greenwich Mean Time)
+[debug] [2021-01-28T21:46:12.775Z] ----------------------------------------------------------------------
+[debug] [2021-01-28T21:46:12.775Z] 
+[debug] [2021-01-28T21:46:12.784Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-28T21:46:12.785Z] > authorizing via signed-in user
+[debug] [2021-01-28T21:46:12.785Z] [iam] checking project stadiaachievements-34145 for permissions ["firebase.projects.get"]
+[debug] [2021-01-28T21:46:12.787Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/stadiaachievements-34145:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-01-28T21:46:13.420Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 28 Jan 2021 21:46:13 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=552","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-28T21:46:13.422Z] > refreshing access token with scopes: []
+[debug] [2021-01-28T21:46:13.422Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-01-28T21:46:13.509Z] <<< HTTP RESPONSE 200 {"date":"Thu, 28 Jan 2021 21:46:13 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-28T21:46:13.532Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/stadiaachievements-34145 [none]
+[debug] [2021-01-28T21:46:13.734Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/stadiaachievements-34145 200
+[debug] [2021-01-28T21:46:13.734Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/stadiaachievements-34145 {"projectId":"stadiaachievements-34145","projectNumber":"1001591143424","displayName":"StadiaHunters","name":"projects/stadiaachievements-34145","resources":{"hostingSite":"stadiaachievements-34145","realtimeDatabaseInstance":"stadiaachievements-34145","storageBucket":"stadiaachievements-34145.appspot.com","locationId":"us-central"},"state":"ACTIVE"}
+[info] 
+[info] === Serving from '/Users/joaopinto/StadiaHunters/StadiaHunters-Angularwebsite'...
+[info] 
+[debug] [2021-01-28T21:46:13.737Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/stadiaachievements-34145/webApps/-/config [none]
+[debug] [2021-01-28T21:46:13.814Z] Error: Cannot find module '/Users/joaopinto/StadiaHunters/StadiaHunters-Angularwebsite/dist/package.json'
+Require stack:
+- /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js
+- /usr/local/lib/node_modules/firebase-tools/lib/emulator/controller.js
+- /usr/local/lib/node_modules/firebase-tools/lib/emulator/commandUtils.js
+- /usr/local/lib/node_modules/firebase-tools/lib/commands/database-get.js
+- /usr/local/lib/node_modules/firebase-tools/lib/commands/index.js
+- /usr/local/lib/node_modules/firebase-tools/lib/index.js
+- /usr/local/lib/node_modules/firebase-tools/lib/bin/firebase.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:925:15)
+    at Function.Module._load (node:internal/modules/cjs/loader:769:27)
+    at Module.require (node:internal/modules/cjs/loader:997:19)
+    at require (node:internal/modules/cjs/helpers:92:18)
+    at FunctionsEmulator.askInstallNodeVersion (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:430:21)
+    at FunctionsEmulator.start (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulator.js:155:32)
+    at Function.start (/usr/local/lib/node_modules/firebase-tools/lib/emulator/registry.js:16:24)
+    at EmulatorServer.start (/usr/local/lib/node_modules/firebase-tools/lib/emulator/emulatorServer.js:17:43)
+    at processTicksAndRejections (node:internal/process/task_queues:94:5)
+    at async FunctionsServer.start (/usr/local/lib/node_modules/firebase-tools/lib/serve/functions.js:38:9)
+    at async Promise.all (index 1)
+    at async serve (/usr/local/lib/node_modules/firebase-tools/lib/serve/index.js:14:5)
+[error] 
+[error] Error: An unexpected error has occurred.

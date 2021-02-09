@@ -1,0 +1,15 @@
+<div class="score-row" (click)="redirectLeaderboard()">
+    <ng-container *ngIf="buildRank(); else elseTemplate">
+        <h2 class="center">Rank: {{buildRank()}}</h2>
+    </ng-container>
+    <ng-template #elseTemplate>
+        <h2 class="center">_</h2>
+    </ng-template>
+    <div class="row" style="margin: 1rem;">
+        <div class="flex-1 row"><i class="material-icons md-gold md-16">sports_esports</i><div class="score">{{buildGames()}}</div></div>
+        <div class="flex-1 row"><i class="material-icons md-16">emoji_events</i><div class="score">{{buildAchievements()}}</div></div>
+        <div class="flex-1 row"><i class="material-icons md-16">leaderboard</i><div class="score">{{buildScore()}}</div></div>
+    </div>
+    <div class="date center">{{buildLeaderboard()}}</div>
+
+</div>

@@ -1,0 +1,11 @@
+<banner></banner>
+
+<div class="mdc-grid">
+    <div style="margin: 1rem;">
+        <h1>FAQ</h1>
+        <br>
+        <div class="mdc-layout-grid__inner">
+            <question class="mdc-layout-grid__cell--span-6" *ngFor="let question of questions" [data]="question"></question>
+        </div>
+    </div>
+</div>

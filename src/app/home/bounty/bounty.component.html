@@ -1,0 +1,10 @@
+<div *ngIf="missing" class="activity-card card" (click)="handleAchievement()">
+    <div class="mdc-layout-grid__inner" style="grid-gap: 0px;">
+        <div [style.background-image]="'url(' + missing.game.banner + ')'" class="mdc-layout-grid__cell--span-4-desktop mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-8-tablet bounty-banner" >
+        </div>
+        <div class="mdc-layout-grid__cell--span-7 border">
+            <div class="username">{{missing.game.name}} <span class="date"> has </span> {{missing.achievement.title}} <span class="date"> missing. </span></div>
+            <div class="subtitle max-2">{{buildSubtitle()}}</div>
+        </div>
+    </div>
+</div>

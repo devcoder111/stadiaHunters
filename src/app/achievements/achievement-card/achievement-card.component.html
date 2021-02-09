@@ -1,0 +1,28 @@
+<a  *ngIf="data && data.title" [id]="data._id" (click)="changeAchievement()">
+    <div class="card spacing-top mdc-layout-grid__inner">
+        <div class="achievement-icon mdc-layout-grid__cell--span-1" [style.background-image]="'url(' + data.icon + ')'"></div>
+        <div class="mdc-layout-grid__cell--span-11-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-3-phone">
+            <div class="title" [innerHTML]="buildTitle()"></div>
+            <div class="subtitle" [innerHTML]="buildSubtitle()"></div>
+            <div class="date" style="margin-top: 0.25rem;">{{buildRarity()}}</div>
+            <div class="row">
+                <div *ngIf="unlocked" class="achievement-unlocked"><div>Unlocked</div><div class="I8jVSc"><i class="material-icons md-16">done</i></div></div>
+                <div *ngIf="data.missable" class="achievement-missable"><div>Missable</div><div class="I8jVSc"><i class="material-icons md-16">warning</i></div></div>
+                <div *ngIf="data.secret" class="icon white tooltip"><i class="material-icons md-20">help_outline</i> <span class="tooltiptext">Secret Achievement</span></div>
+                <div *ngIf="data.bugged" class="icon yellow tooltip"><i class="material-icons md-20">error_outline</i><span class="tooltiptext">Bugged Achievement</span></div>
+                <div *ngIf="data.timed" class="icon blue tooltip"><i class="material-icons md-20">date_range</i><span class="tooltiptext">Date Specific Achievement</span></div>
+                <div *ngIf="data.comments > 0" class="icon green tooltip"><i class="material-icons md-20">chat</i><span class="guide">{{data.comments}}</span><span class="tooltiptext">{{data.comments}} Guides</span></div>
+            </div>
+
+            <div class="tip-header" *ngIf="data.hint">
+                <div class="tip-title">Guide:</div>
+                <div class="hint" [innerHTML]="data.hint"></div>
+            </div>
+
+            <div class="mdc-layout-grid__inner" style="margin-top: 0.5rem;">
+                <achievement-media *ngFor="let media of data.images" [media]="media" [isVideo]="false" class="mdc-layout-grid__cell--span-2"></achievement-media>
+                <achievement-media *ngFor="let media of data.video" [media]="media" [isVideo]="true" class="mdc-layout-grid__cell--span-2"></achievement-media>
+            </div>
+        </div>
+    </div>
+</a>

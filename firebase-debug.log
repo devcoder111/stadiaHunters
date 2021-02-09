@@ -1,0 +1,35 @@
+[debug] [2021-01-30T22:14:31.020Z] ----------------------------------------------------------------------
+[debug] [2021-01-30T22:14:31.023Z] Command:       C:\Program Files\nodejs1\node.exe C:\Users\aa\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2021-01-30T22:14:31.023Z] CLI Version:   9.2.2
+[debug] [2021-01-30T22:14:31.023Z] Platform:      win32
+[debug] [2021-01-30T22:14:31.023Z] Node Version:  v12.17.0
+[debug] [2021-01-30T22:14:31.024Z] Time:          Sun Jan 31 2021 06:14:31 GMT+0800 (Singapore Standard Time)
+[debug] [2021-01-30T22:14:31.025Z] ----------------------------------------------------------------------
+[debug] [2021-01-30T22:14:31.025Z] 
+[debug] [2021-01-30T22:14:31.034Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-30T22:14:31.035Z] > authorizing via signed-in user
+[debug] [2021-01-30T22:14:31.035Z] [iam] checking project stadiaachievements-34145 for permissions ["firebase.projects.get"]
+[debug] [2021-01-30T22:14:31.039Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/stadiaachievements-34145:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2021-01-30T22:14:32.379Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sat, 30 Jan 2021 22:14:13 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=243","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-30T22:14:32.380Z] [iam] error while checking permissions, command may fail: FirebaseError: Authorization failed. This account is missing the following required permissions on project stadiaachievements-34145:
+
+  firebase.projects.get
+[debug] [2021-01-30T22:14:32.382Z] > refreshing access token with scopes: []
+[debug] [2021-01-30T22:14:32.382Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-01-30T22:14:34.888Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Sat, 30 Jan 2021 22:14:15 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-01-30T22:14:34.903Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/stadiaachievements-34145 [none]
+[debug] [2021-01-30T22:14:36.193Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/stadiaachievements-34145 403
+[debug] [2021-01-30T22:14:36.193Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/stadiaachievements-34145 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2021-01-30T22:14:36.194Z] HTTP Error: 403, The caller does not have permission
+[debug] [2021-01-30T22:14:37.594Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (C:\Users\aa\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:38:12)
+    at Client.doRequest (C:\Users\aa\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:221:23)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async Client.request (C:\Users\aa\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:93:20)
+    at async Object.getFirebaseProject (C:\Users\aa\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:289:21)
+    at async getProjectNumber (C:\Users\aa\AppData\Roaming\npm\node_modules\firebase-tools\lib\getProjectNumber.js:11:22)
+    at async C:\Users\aa\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:161:17
+[error] 
+[error] Error: Failed to get Firebase project stadiaachievements-34145. Please make sure the project exists and your account has permission to access it.

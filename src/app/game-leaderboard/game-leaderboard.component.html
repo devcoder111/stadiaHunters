@@ -1,0 +1,18 @@
+<div class="mdc-grid mdc-layout-grid__inner" style="grid-gap: 0px;">
+    <div *ngIf="tag" class="mdc-layout-grid__cell--span-10 row">
+        <a class="stadia-button" routerLink="{{achievements()}}">Achievements</a>
+        <div class="stadia-button selected" >Leaderboard</div>
+        <a class="stadia-button" routerLink="{{guide()}}">Guides</a>
+        <a class="stadia-button" routerLink="{{review()}}">Reviews</a>
+    </div>
+
+    <game-leaderboard-header class="mdc-layout-grid__cell--span-12"></game-leaderboard-header>
+
+    <div scrollable (scrollPosition)="scrollHandler($event)" class="mdc-layout-grid__cell--span-12">
+        <game-leaderboard-user *ngFor="let user of page.data| async; let i = index" [index]="i"  [data]="user"></game-leaderboard-user>
+        <p *ngIf="page.done | async" class="center"> _______</p>
+        <loading-spinner  *ngIf="page.loading | async" class="center"></loading-spinner>
+    </div>
+</div>
+
+

@@ -1,0 +1,10 @@
+<banner></banner>
+<div class="mdc-grid">
+    <stats-header class="mdc-layout-grid__cell--span-12"></stats-header>
+
+    <div scrollable (scrollPosition)="scrollHandler($event)" class="mdc-layout-grid__cell--span-12">
+        <stats-user *ngFor="let game of page.data| async; let i = index" (click)="redirect(game)" [filter]="filter" [index]="i"  [data]="game"></stats-user>
+        <p *ngIf="page.done | async" class="center"> _______</p>
+        <loading-spinner  *ngIf="page.loading | async" class="center"></loading-spinner>
+    </div>
+</div>

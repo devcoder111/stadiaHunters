@@ -1,0 +1,36 @@
+<banner></banner>
+<div class="mdc-grid mdc-layout-grid__inner">
+    <div class="form mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-6-desktop">
+        <form [formGroup]="profileForm" (ngSubmit)="register()">
+            <label>
+              <input type="text" formControlName="name" placeholder="Stadia Username" required>
+              <span class="date hint">e.g. Endeavour</span>
+            </label>
+          
+            <label>
+              <input type="text" formControlName="tag" placeholder="Tag" required  minlength="4"  maxlength="4">
+              <span class="date hint">e.g. 6399 or 0000 if you are a founder</span>
+            </label>
+
+            <label>
+                <input type="url" formControlName="link" placeholder="Profile link">
+                <span class="date hint">e.g. https://stadia.google.com/profile/11024621899961678477</span>
+            </label>
+            <button type="submit" [disabled]="!profileForm.valid"><div class="google-button"><img src="../../../assets/images/search.svg" width="20" height="20"/><div class="google-text">Register with Google</div></div></button>
+        </form>
+
+        <h4 style="margin-top: 1rem;">Already registered?</h4>
+
+        <button (click)="signIn()"><div class="google-button"><img src="../../../assets/images/search.svg" width="20" height="20"/><div class="google-text">Login with Google</div></div></button>
+
+    </div>
+    <div class="form mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-6-desktop">
+        <h2>Register now, and enjoy the following benefits</h2>
+        <h3 style="margin: 0;">Track achievements on Google Stadia</h3>
+        <p class="hint">Stadia hunters provides the ability to showcase and track your gaming progress on Google Stadia</p>
+        <h3 style="margin: 0;">Get ranked</h3>
+        <p class="hint">See how you rank up against 700+ (and counting!) gamers on our monthly, yearly and overall leaderboards. Compare games and view rarity of achievements.</p>
+        <h3 style="margin: 0;">Join a thriving community</h3>
+        <p class="hint">Share tips and connect with other gamers on our community. Help search for secret achievement or write a guide for your favourite game on Stadia</p>
+    </div>
+</div>

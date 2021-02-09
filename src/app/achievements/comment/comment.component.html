@@ -1,0 +1,20 @@
+<div *ngIf="!data.isDeleted" class="card comment-card spacing-top mdc-layout-grid__inner">
+    <div class="mdc-layout-grid__cell--span-12">
+        <div class="row">
+            <div *ngIf="data.user" class="avatar" [style.background-image]="'url(' + buildAvatar() + ')'"></div>
+            <div [ngClass]="{'username-center': data.user}" class="title flex-1">{{buildUsername()}}</div>
+            <div class="date">{{buildDate()}}</div>
+        </div>
+        <div class="row">
+            <div *ngIf="data.bugged" class="achievement-missable yellow"><div>Bugged</div><i class="material-icons md-16">error_outline</i></div>
+            <div *ngIf="data.missable" class="achievement-missable"><div>Missable</div><div class="I8jVSc"><i class="material-icons md-16">warning</i></div></div>
+            <div *ngIf="data.dlc" class="achievement-missable white"><span class="dlc-icon">DLC</span><div>Required</div></div>
+        </div>
+    </div>
+    <div class='mdc-layout-grid__cell--span-12'>
+        <pre *ngIf="!data.content" class="guide-text">{{data.text}}</pre>
+        <div *ngIf="data.content" class="mdc-layout-grid__inner" style="grid-gap: 4px;">
+            <guide *ngFor="let guide of data.content" [guide]="guide" [ngClass]="{'mdc-layout-grid__cell--span-4': guide.type == 'video' || guide.type == 'image', 'mdc-layout-grid__cell--span-12': guide.type != 'video' && guide.type != 'image'}"></guide> 
+        </div>
+    </div>
+</div>

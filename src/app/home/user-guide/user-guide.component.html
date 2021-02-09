@@ -1,0 +1,17 @@
+<div class="activity-card card" (click)="handleAchievement()">
+    <div class="mdc-layout-grid__inner" style="grid-gap: 0px;">
+        <div class="mdc-layout-grid__cell--span-5 activity-banner" [style.background-image]="'url(' + activity.game.banner + ')'" style="height: 90px;">
+        </div>
+        <div class="mdc-layout-grid__cell--span-7 border">
+            <div class="username">{{activity.achievement.title}}</div>
+            <div class="subtitle max-2">{{activity.achievement.subtitle}}</div>
+        </div>
+        <div class="mdc-layout-grid__cell--span-12 border">
+            <div class="row" (click)="handleAchievement()">
+                <img alt="{{activity.user.username}} avatar" class="activity-avatar avatar" data-src="{{activity.user.avatar}}"/>
+                <div class="activity-username">{{activity.user.username}}</div>
+            </div>
+            <div class="hint activity-hint max-2">{{activity.comment}}</div>
+        </div>
+    </div>
+</div>

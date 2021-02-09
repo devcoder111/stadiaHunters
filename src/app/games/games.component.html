@@ -1,0 +1,31 @@
+<banner></banner>
+<div  class="mdc-layout-grid mdc-grid" style="min-height: 500px;">
+    <div class="mdc-layout-grid__inner" style="margin: 1rem 0;">
+        <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-phone header"> Games</div>
+        <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-phone"></div>
+        <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-phone dropdown">
+            <div class="sort" (click)="showDialog()"><div class="flex-1"></div><div>{{buildDropdownText()}}</div><i class="material-icons md-20">arrow_drop_down</i><div class="flex-1"></div></div>
+            <div [ngClass]="{'show': showDropdown}" class="dropdown-content">
+                <a (click)="sort('launchDate')">Release Date</a>
+                <a (click)="sort('owned')">Most Popular</a>
+                <a (click)="sort('completed')">Most Completions</a>
+                <div class="separator"></div>
+                <a (click)="sort('achievements')">Total Achievements</a>
+                <a (click)="sort('achievements_bugged')">Bugged Achievements</a>
+                <a (click)="sort('achievements_secret')">Secret Achievements</a>
+                <a (click)="sort('achievements_timed')">Timed Achievements</a>
+                <a (click)="sort('achievements_dlc')">DLC Achievements</a>
+            </div>
+        </div>
+    </div>
+
+
+<div scrollable (scrollPosition)="scrollHandler($event)">
+        <div class="mdc-layout-grid__inner">
+            <game-card *ngFor="let game of page.data | async" [game]="game" class="mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-phone"></game-card>
+        </div>
+
+        <p *ngIf="page.done | async" class="center"> _______</p>
+        <loading-spinner  *ngIf="page.loading | async" class="center"></loading-spinner>
+    </div>
+</div>

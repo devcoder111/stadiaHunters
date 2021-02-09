@@ -1,0 +1,23 @@
+<div class="mdc-grid mdc-layout-grid__inner" style="grid-gap: 0px;">
+    <div *ngIf="game" class="mdc-layout-grid__cell--span-10 row">
+        <div class="stadia-button selected">Achievements</div>
+        <a class="stadia-button" routerLink="{{leaderboard()}}">Leaderboard</a>
+        <a class="stadia-button" routerLink="{{guide()}}">Guides</a>
+        <a class="stadia-button" routerLink="{{review()}}">Reviews</a>
+    </div>
+    <div class="mdc-layout-grid__cell--span-2-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-phone dropdown">
+        <div class="sort" (click)="showDialog()"><div class="flex-1"></div><div>{{buildDropdownText()}}</div><i class="material-icons md-20">arrow_drop_down</i><div class="flex-1"></div></div>
+        <div [ngClass]="{'show': showDropdown}" class="dropdown-content">
+            <a (click)="sort('order')">Order</a>
+            <a (click)="sort('secret')">Secret</a>
+            <a (click)="sort('bugged')">Bugged</a>
+            <a (click)="sort('common')">Common</a>
+            <a (click)="sort('rare')">Rarest</a>
+        </div>
+    </div>
+    <div scrollable (scrollPosition)="scrollHandler($event)" class="mdc-layout-grid__cell--span-12" style="min-height: 500px;">
+        <achievement *ngFor="let achiev of page.data | async" [achievement]="achiev" [game]="game"></achievement>
+        <p *ngIf="page.done | async" class="center"> _______</p>
+        <loading-spinner  *ngIf="page.loading | async" class="center"></loading-spinner>
+    </div>
+</div>

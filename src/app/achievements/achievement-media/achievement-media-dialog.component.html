@@ -1,0 +1,8 @@
+<div mat-dialog-content>
+    <div>
+        <img *ngIf="!data.isVideo" src="{{data.url}}" style="max-width: 60vw;">
+    </div>
+    <div *ngIf="data.isVideo" class="container">
+        <iframe class="responsive-iframe" [src]="url" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>

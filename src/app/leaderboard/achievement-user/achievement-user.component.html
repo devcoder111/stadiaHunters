@@ -1,0 +1,6 @@
+<div class="row mdc-layout-grid__cell--span-12 spacing-top">
+    <div class="title" style="width: 1rem;">{{index + 1}}</div>
+    <div class="avatar" [style.background-image]="'url(' + data.avatar + ')'"></div>
+    <div class="leaderboard-text flex-1" style="overflow: auto;">{{buildUsername(data.name, data.tag)}}</div>
+    <div class="date">{{buildDate(data.completed)}}</div>
+</div>

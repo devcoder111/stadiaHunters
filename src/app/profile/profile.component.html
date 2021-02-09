@@ -1,0 +1,50 @@
+<div *ngIf="user" class="game-banner" [style.background-image]="'url(' + banner + ')'">
+    <div class="game-banner__shade mdc-layout-grid">
+    </div>
+</div>
+<div *ngIf="user" class="mdc-grid">
+    <div class="mdc-layout-grid__inner profile-spacing">
+        <div class="mdc-layout-grid__cell--span-3-phone mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-10-desktop row">
+            <h1 class="profile-spacing">{{user.username}}</h1>
+            <div class="date" style="margin: auto 5rem;">{{buildHoursPlayed()}}</div>
+        </div>
+        <div style="margin: 0 0 0 auto;" class="mdc-layout-grid__cell--span-1-phone mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-2-desktop">
+            <a *ngIf="user.stadiaId" [href]="stadiaLink()" target="_blank" mat-mini-fab class="white-button">
+                <img src="../assets/images/stadia.png" width="32"/>
+            </a>
+            <button *ngIf="isUser()" (click)="signOut()" mat-mini-fab class="white-button">
+                <mat-icon>power_settings_new</mat-icon>
+            </button>
+        </div>
+
+        <profile-score class="mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-desktop" [type]="'month'" [user]="user"></profile-score>
+        <profile-score class="mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-desktop" [type]="'year'" [user]="user"></profile-score>
+        <profile-score class="mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-desktop" [type]="'overall'" [user]="user"></profile-score>
+    </div>
+    <div *ngIf="user.games_owned" class="mdc-layout-grid__inner" style="margin: 1rem;">
+        <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-phone row">       
+            <h2>Games</h2>
+            <div class="date" style="margin: auto 1rem;">( {{user.games_owned}} played )</div>
+        </div>
+        <div class="mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-phone"></div>
+        <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-phone dropdown">
+            <div class="sort" (click)="showDialog()"><div class="flex-1"></div><div>{{buildDropdownText()}}</div><i class="material-icons md-20">arrow_drop_down</i><div class="flex-1"></div></div>
+            <div [ngClass]="{'show': showDropdown}" class="dropdown-content">
+                <a (click)="sort('last_played')">Last Played</a>
+                <a (click)="sort('time_played')">Time Played</a>
+                <div class="separator"></div>
+                <a (click)="sort('achievements')">Total Achievements</a>
+                <a (click)="sort('achievements_completed')">Completed Achievements</a>
+            </div>
+        </div>
+    </div>
+    <div scrollable (scrollPosition)="scrollHandler($event)" style="min-height: 20rem;">
+
+        <div class="mdc-layout-grid__inner">
+            <profile-game *ngFor="let game of page.data| async; trackBy: itemTrackBy" (click)="redirect(game)" [game]="game" class="mdc-layout-grid__cell--span-12"></profile-game>
+        </div>
+
+        <p *ngIf="page.done | async" class="center"> _______</p>
+        <loading-spinner  *ngIf="page.loading | async" class="center"></loading-spinner>
+    </div>
+</div>

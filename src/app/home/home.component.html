@@ -1,0 +1,74 @@
+<script src="http://platform.twitter.com/widgets.js"></script>
+<banner></banner>
+<div  class="mdc-layout-grid mdc-grid">
+    <div class="mdc-layout-grid__inner">
+
+        <div class="header mdc-layout-grid__cell--span-12">Leaderboards</div>
+        <div class="mdc-layout-grid__cell--span-12 mdc-layout-grid__inner">
+            <a class="header card mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet" routerLink="/leaderboard/month">
+                <div class="center">{{getMonth()}}</div>
+                <div class="date center">Leaderboard</div>
+                <div style="min-height: 480px;">
+                    <leaderboard-user-small *ngFor="let user of monthLeaderboard| async; let i = index" [filter]="'month'" [index]="i"  [data]="user"></leaderboard-user-small>
+                </div>
+            </a>
+            <a class="header card mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet" routerLink="/leaderboard/year">
+                <div class="center">{{getYear()}}</div>
+                <div class="date center">Leaderboard</div>
+                <div style="min-height: 480px;">
+                    <leaderboard-user-small *ngFor="let user of yearLeaderboard| async; let i = index" [filter]="'year'" [index]="i"  [data]="user"></leaderboard-user-small>
+                </div>
+            </a>
+            <a class="header card mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet" routerLink="/leaderboard/overall">
+                <div class="center">All time</div>
+                <div class="date center">Leaderboard</div>
+                <div style="min-height: 480px;">
+                    <leaderboard-user-small *ngFor="let user of overallLeaderboard| async; let i = index" [filter]="'overall'" [index]="i"  [data]="user"></leaderboard-user-small>
+                </div>
+            </a>
+        </div>
+
+        <h1 class="header mdc-layout-grid__cell--span-11-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">Recent Game Guides</h1>
+        <a class="title button-more mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone" routerLink="/guides">See all</a>
+        <game-guide *ngFor="let game of recentGameGuides | async" [game]="game" class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone"></game-guide>
+
+        <div class="header mdc-layout-grid__cell--span-12">Recent Videos</div>
+        <achievement-media *ngFor="let media of recentVideos | async" [media]="media.url" [isVideo]="true" class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone"></achievement-media>
+
+        <h1 class="header mdc-layout-grid__cell--span-11-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">Recent Achievement Guides</h1>
+        <a class="title button-more mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone" routerLink="/highlights">See all</a>
+        <user-guide *ngFor="let activity of recentAchievementGuides | async" [activity]="activity" class="mdc-layout-grid__cell--span-4 mdc-layout-grid__cell--span-8-tablet"></user-guide>
+
+        <div class="mdc-layout-grid__cell--span-12"></div>
+        <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+            <div class="title">Discord</div>
+            <div class="hint" style="margin-bottom: 0.7rem;">Wanna chat or find a group for achievement hunting together? Looking for stadia secret achievements or help on bugged? Come join us on our official Discord. </div>
+            <a mat-raised-button href="http://discord.gg/U9Bykub" rel="noreferrer" target="_blank" class="social-button discord"><img alt="Discord Icon" src="../assets/images/discord.png"/> Join us</a>
+        </div>
+        <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+            <div class="title">Social Media</div>
+            <div class="hint" style="margin-bottom: 0.5rem;">Keep up to date to all the information and Support us by following us!</div>
+            <a mat-raised-button href="https://www.youtube.com/channel/UCmv33RU50LgFnR-7TfZOvQw?sub_confirmation=1" rel="noreferrer" target="_blank" class="social-button youtube"><img alt="Youtube Icon" src="../assets/images/youtube.png"/> Subscribe</a>
+            <a mat-raised-button href="https://twitter.com/StadiaHunters?ref_src=twsrc%5Etfw" rel="noreferrer" target="_blank" class="social-button twitter"><img alt="Twitter Icon" src="../assets/images/twitter.png"/> Follow us</a>
+        </div>
+        
+        <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+            <div class="title">Chrome Extension</div>
+            <div class="hint" style="margin-bottom: 0.7rem;">Now with the Stadia Hunters chrome extension, you can control the update of your Stadia profile while also having an easy way to check your missing achievements while playing.</div>
+            <a mat-raised-button href="https://chrome.google.com/webstore/detail/stadia-hunters/fpbdilcfficmipfhflimkhokccldbhph" rel="noreferrer" target="_blank" class="social-button extension"> <mat-icon>extension</mat-icon>Add to Chrome</a>
+        </div>
+        <div class="mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-phone">
+            <div class="title">Android</div>
+            <div class="hint" style="margin-bottom: 0.5rem;">All the information and quality of life of Stadia Hunters in a native format.</div>
+            <a mat-raised-button href='https://play.google.com/store/apps/details?id=com.endeavour.stadiahunters&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1' rel="noreferrer"  target="_blank" class="social-button playstore"> <img alt="Android Playstore Link" src="../assets/images/playstore.png"/>Android Version</a>
+        </div>
+
+        <div *ngIf="missingAchievements" class="header mdc-layout-grid__cell--span-12">Bounty Board</div>
+        <bounty *ngFor="let missing of missingAchievements | async" [missing]="missing" class="mdc-layout-grid__cell--span-12"></bounty>
+    
+        <h1 class="header mdc-layout-grid__cell--span-11-desktop mdc-layout-grid__cell--span-7-tablet mdc-layout-grid__cell--span-3-phone">Recent Releases</h1>
+        <a class="title button-more mdc-layout-grid__cell--span-1-desktop mdc-layout-grid__cell--span-1-tablet mdc-layout-grid__cell--span-1-phone" routerLink="/games">See all</a>
+        <game-card *ngFor="let game of recentGames | async" [game]="game" class="mdc-layout-grid__cell--span-3 mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-phone"></game-card>
+    </div>
+
+</div>

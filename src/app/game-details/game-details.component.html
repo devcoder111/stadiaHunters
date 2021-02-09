@@ -1,0 +1,23 @@
+
+<div *ngIf="game" class="game-banner" [style.background-image]="'url(' + game.banner + ')'">
+    <div class="game-banner__shade mdc-layout-grid" (click)="navigateToGame()">
+        <div class="mdc-layout-grid__inner mdc-grid">
+            <div class="mdc-layout-grid__cell--span-9">
+                <div class="header">{{game.name}}</div>
+            </div>
+            <div class="mdc-layout-grid__cell--span-3 row">
+                <div class="flex-1 centered">
+                    <div class="header"><i class="material-icons">check</i> {{buildValue(game.completed)}}</div>
+                </div>
+                <div class="flex-1 centered">
+                    <div class="header"><i class="material-icons">person</i> {{buildValue(game.owned)}}</div>
+                </div>
+                <div class="flex-1 centered">
+                    <div class="header"><i class="material-icons">emoji_events</i> {{game.achievements}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

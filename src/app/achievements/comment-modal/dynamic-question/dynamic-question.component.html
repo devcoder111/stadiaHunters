@@ -1,0 +1,11 @@
+<div [formGroup]="form">
+    <div [ngSwitch]="question.controlType">
+        <input *ngSwitchCase="'title'" [placeholder]="question.hint" [formControlName]="question.key" [id]="question.key" [type]="question.type">
+        <textarea *ngSwitchCase="'text'" [placeholder]="question.hint" [id]="question.key" [formControlName]="question.key"></textarea>
+        <input *ngSwitchCase="'image'" [placeholder]="question.hint" [formControlName]="question.key" [id]="question.key" [type]="question.type">
+        <input *ngSwitchCase="'video'" [placeholder]="question.hint" [formControlName]="question.key" [id]="question.key" [type]="question.type">
+
+        <input *ngSwitchCase="'link'" [placeholder]="question.hint" [formControlName]="question.key" [id]="question.key" [type]="question.type">
+        <input *ngSwitchCase="'state-share'" [placeholder]="question.hint" [formControlName]="question.key" [id]="question.key" [type]="question.type">
+    </div>
+</div>

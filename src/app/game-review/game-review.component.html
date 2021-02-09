@@ -1,0 +1,22 @@
+<div class="mdc-grid mdc-layout-grid__inner" style="grid-gap: 0px;">
+    <div  *ngIf="tag" class="mdc-layout-grid__cell--span-10 row">
+        <a class="stadia-button" routerLink="{{achievements()}}">Achievements</a>
+        <a class="stadia-button" routerLink="{{leaderboard()}}">Leaderboard</a>
+        <a class="stadia-button" routerLink="{{guide()}}">Guides</a>
+        <div class="stadia-button selected">Reviews</div>
+    </div>
+
+    <div scrollable (scrollPosition)="scrollHandler($event)" class="mdc-layout-grid__cell--span-12 mdc-layout-grid__inner" style="grid-gap: 0px;">
+        <guide *ngFor="let guide of page.data | async" [guide]="guide" [ngClass]="{'mdc-layout-grid__cell--span-2': guide.type == 'video' || guide.type == 'image', 'mdc-layout-grid__cell--span-12': guide.type != 'video' && guide.type != 'image'}"></guide>
+        <p *ngIf="page.done | async" class="center mdc-layout-grid__cell--span-12"> _______</p>
+        <loading-spinner  *ngIf="page.loading | async" class="center"></loading-spinner>
+    </div>
+
+    <div class="mdc-layout-grid__cell--span-12">
+        <div class="centered">
+        <a *ngIf="!user" (click)="signIn()" mat-button class="white-button">Sign in and add a review</a>
+        <a *ngIf="user" (click)="buildCommentModal()" mat-button class="white-button">Add a Review</a>
+        </div>
+    </div>
+
+</div>

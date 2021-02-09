@@ -1,0 +1,22 @@
+<a routerLink="{{buildRoute()}}" (click)="changeUser()">
+    <div class="row mdc-layout-grid__cell--span-12 leaderboard-user location-card" ngclass>
+        <div class="title leaderboard-number">{{index}}</div>
+        <img class="avatar" data-src="{{data.avatar}}"/>
+        <div class="leaderboard-text" style="flex-grow: 1;">{{data.username}}</div>
+        <div *ngIf="filter === 'month'" class="row">
+            <div class="leaderboard-number mobile-gone">{{data.month_games_completed}}</div>
+            <div class="leaderboard-number mobile-gone">{{data.month_achievements}}</div>
+            <div class="leaderboard-number">{{data.month_score}}</div>
+        </div>
+        <div *ngIf="filter === 'year'" class="row">
+            <div class="leaderboard-number mobile-gone">{{data.year_games_completed}}</div>
+            <div class="leaderboard-number mobile-gone">{{data.year_achievements}}</div>
+            <div class="leaderboard-number">{{data.year_score}}</div>
+        </div>
+        <div *ngIf="filter === 'overall'" class="row">
+            <div class="leaderboard-number mobile-gone">{{data.games_completed}}</div>
+            <div class="leaderboard-number mobile-gone">{{data.achievements_completed}}</div>
+            <div class="leaderboard-number">{{data.score}}</div>
+        </div>
+    </div>
+</a>

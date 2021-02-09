@@ -1,0 +1,113 @@
+{
+  "configVersion": 1,
+  "timestamp": 1611873560402,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/5-es2015.38547e06522619a35786.js",
+        "/5-es5.38547e06522619a35786.js",
+        "/index.html",
+        "/main-es2015.8ba58ed054dc94e47971.js",
+        "/main-es5.8ba58ed054dc94e47971.js",
+        "/manifest.webmanifest",
+        "/polyfills-es2015.d9c5f917658a7a414930.js",
+        "/polyfills-es5.8471270adfd1b2d16532.js",
+        "/runtime-es2015.c34e4928b06d0423cdbc.js",
+        "/runtime-es5.c34e4928b06d0423cdbc.js",
+        "/styles.c642c48d805c3537e71c.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/assets/images/discord.png",
+        "/assets/images/facebook.png",
+        "/assets/images/instagram.png",
+        "/assets/images/playstore.png",
+        "/assets/images/search.svg",
+        "/assets/images/stadia.png",
+        "/assets/images/text-logo.png",
+        "/assets/images/twitter.png",
+        "/assets/images/youtube.png",
+        "/assets/images/youtube.svg",
+        "/assets/styles/games.component.sass",
+        "/assets/styles/leaderboard.sass"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/5-es2015.38547e06522619a35786.js": "623b6c6d883342bc20986588bc8c13fe81c05dae",
+    "/5-es5.38547e06522619a35786.js": "734e4f12614fb86dd8c03a8fe1c27adc9405e478",
+    "/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
+    "/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
+    "/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
+    "/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
+    "/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
+    "/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
+    "/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
+    "/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
+    "/assets/images/discord.png": "7ee034bb55b46a5762a833ed7aae087dde86d033",
+    "/assets/images/facebook.png": "88e3d872b35753cbfdf54d3b73f36d37678666be",
+    "/assets/images/instagram.png": "816a78a004d2620dfa5839093724ad153a9a4645",
+    "/assets/images/playstore.png": "ab265e3c81bb216102eac27fc0aa421d7ee21aea",
+    "/assets/images/search.svg": "c61f6762d15b2c325843ae8c2474341ed52fb889",
+    "/assets/images/stadia.png": "2f9f037f4d93887db22a342a679a1f51ca865bb3",
+    "/assets/images/text-logo.png": "49944fc204fdcf450edcc6f060e2a02aa9762aa0",
+    "/assets/images/twitter.png": "822e817e17e4396d7b839a2827cf223e48b995b9",
+    "/assets/images/youtube.png": "47ff4537f19f667c94503b6ce6dc90fff8b2568f",
+    "/assets/images/youtube.svg": "32aa583f13a1210e40ec94e753a4023eb0437ba2",
+    "/assets/styles/games.component.sass": "414f3ccd1dbb1c0b8facdee0489849c5cae29e6c",
+    "/assets/styles/leaderboard.sass": "07ad35a719da77432fc8d3ed64ca12c827fcaacd",
+    "/index.html": "12a23f9a44a9c3d4b792a81ee8889094f9bbabc4",
+    "/main-es2015.8ba58ed054dc94e47971.js": "006ad4e3e75ac0fc006b86d0f074a2e2a7f41831",
+    "/main-es5.8ba58ed054dc94e47971.js": "ca91db5b7bd7c8ebde6de311dd63ca0dfeabff47",
+    "/manifest.webmanifest": "428e42b140db506e04f43f205d8164d0d043a4b4",
+    "/polyfills-es2015.d9c5f917658a7a414930.js": "65c537467564ee0ba776b629f71ed3413413a7cb",
+    "/polyfills-es5.8471270adfd1b2d16532.js": "214f4b46e6da9fadd1fae2439f1791ee1ad0f563",
+    "/runtime-es2015.c34e4928b06d0423cdbc.js": "2b33b590f40a6934eaaa8584aaeb3f66c97e03e3",
+    "/runtime-es5.c34e4928b06d0423cdbc.js": "580ccd6858e89c6168a1a8ccf5bb88ede0caa5e3",
+    "/styles.c642c48d805c3537e71c.css": "8b6a4feac928a2b0a04cb47227125df39d2ec9f2"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

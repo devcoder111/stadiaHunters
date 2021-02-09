@@ -1,0 +1,9 @@
+<div class="row mdc-layout-grid__cell--span-12 leaderboard-user">
+    <div class="title leaderboard-number">{{index + 1}}</div>
+    <div class="banner" [style.background-image]="'url(' + data.banner + ')'"></div>
+    <div class="leaderboard-text max-1" style="flex-grow: 1; min-width: 132px;">{{data.name}}</div>
+    <div *ngIf="filter == 'completed'" class="leaderboard-number mobile-gone"><div>{{data.achievements}}</div><div class="date">Achievements</div></div>
+    <div *ngIf="filter == 'completed'" class="leaderboard-number mobile-gone"><div>{{buildRarity()}}</div><div class="date">Rarity</div></div>
+    <div *ngIf="filter == 'completed'" class="leaderboard-number mobile-gone"><div>{{data.owned}}</div><div class="date">Players</div></div>
+    <div class="leaderboard-number"><div>{{buildData()}}</div><div class="date">{{buildDataTitle()}}</div></div>
+</div>

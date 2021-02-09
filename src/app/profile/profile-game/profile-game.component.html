@@ -1,0 +1,15 @@
+<div class="profile-game-card">
+    <div class="profile-game-image" [style.background-image]="'url(' + game.banner + ')'"></div>
+    <div class="mdc-layout-grid__inner profile-game-body">
+        <div class="mdc-layout-grid__cell--span-12 profile-game-header">{{game.name}}</div>
+        <div class="mdc-layout-grid__cell--span-12 profile-game-last max-1 date">{{buildLastPlayed()}} <span class="date" style="margin: 4rem;">{{buildHoursPlayed()}} {{buildMinPlayed()}}</span></div>
+        <div *ngIf="game.achievements > 0" class="hint mdc-layout-grid__cell--span-10-desktop mdc-layout-grid__cell--span-6-tablet mdc-layout-grid__cell--span-2-phone" style="margin: auto 0 0;">Achievements</div>
+        <div *ngIf="game.achievements > 0" class="mdc-layout-grid__cell--span-2 profile-game-trophies">
+            <i class="material-icons md-light md-16">emoji_events</i>
+            <span class="trophy">{{game.achievements_completed}}</span><span class="trophy">/</span><span class="trophy">{{game.achievements}}</span>
+        </div>
+        <div *ngIf="game.achievements > 0" class="progress-bar-container mdc-layout-grid__cell--span-12">
+            <div class="progress-bar" [style.width]="buildPercentage()"></div>
+        </div>
+    </div>
+</div>

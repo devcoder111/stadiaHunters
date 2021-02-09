@@ -1,0 +1,14 @@
+<a class="row mdc-layout-grid__cell--span-12 leaderboard-user location-card" routerLink="{{buildRoute()}}"  (click)="changeUser()">
+    <div class="title" style="width: 0.75rem;">{{index + 1}}</div>
+    <img alt="{{data.username}} Avatar" class="avatar" data-src="{{data.avatar}}"/>
+    <div class="leaderboard-text" style="flex-grow: 1;">{{data.username}}</div>
+    <div *ngIf="filter === 'month'">
+        <div class="leaderboard-number">{{data.month_score}}</div>
+    </div>
+    <div *ngIf="filter === 'year'">
+        <div class="leaderboard-number">{{data.year_score}}</div>
+    </div>
+    <div *ngIf="filter === 'overall'">
+        <div class="leaderboard-number">{{data.score}}</div>
+    </div>
+</a>

@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-phone">
+            <h1>{{buildTitle()}}</h1>
+
+            <app-dynamic-form [questions]="questions$" [size]="questions$.length"></app-dynamic-form>
+
+            <h3>Additional attachments:</h3>
+            <div class="row wrap">
+                <button (click)="addField('title')" mat-mini-fab class="white-button">
+                    <mat-icon>format_bold</mat-icon>
+                </button>
+                <button (click)="addField('text')" mat-mini-fab class="white-button">
+                    <mat-icon>insert_comment</mat-icon>
+                </button>
+                <button (click)="addField('image')" mat-mini-fab class="white-button">
+                    <mat-icon>insert_photo</mat-icon>
+                </button>
+                <button (click)="addField('link')" mat-mini-fab class="white-button">
+                    <mat-icon>insert_link</mat-icon>
+                </button>
+                <button (click)="addField('video')" mat-mini-fab class="white-button">
+                    <img src="../assets/images/youtube.png" width="24"/>
+                </button>
+                <button (click)="addField('state-share')" mat-mini-fab class="white-button">
+                    <img src="../assets/images/stadia.png" width="24"/>
+                </button>
+                <button (click)="removeField()" mat-mini-fab class="white-button">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+            <h3>Report as:</h3>
+            <div>
+                <div><mat-checkbox [(ngModel)]="bugged"> Bugged</mat-checkbox></div>
+                <div><mat-checkbox [(ngModel)]="missable"> Missable</mat-checkbox></div>
+                <div><mat-checkbox [(ngModel)]="dlc"> Requires DLC</mat-checkbox></div>
+            </div>
+        </div>
+        <div class="mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-6">
+            <h1>Preview</h1>
+            <div class="row">
+                <div *ngIf="bugged" class="achievement-missable yellow"><div>Bugged</div><i class="material-icons md-16">error_outline</i></div>
+                <div *ngIf="missable" class="achievement-missable"><div>Missable</div><div class="I8jVSc"><i class="material-icons md-16">warning</i></div></div>
+                <div *ngIf="dlc" class="achievement-missable white"><span class="dlc-icon">DLC</span><div>Required</div></div>
+            </div>
+            <div class="mdc-layout-grid__inner" style="grid-gap: 4px;">
+                <guide *ngFor="let guide of responses$ | async" [guide]="guide" [ngClass]="{'mdc-layout-grid__cell--span-4': guide.type == 'video' || guide.type == 'image', 'mdc-layout-grid__cell--span-12': guide.type != 'video' && guide.type != 'image'}"></guide> 
+            </div>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions style="margin: auto;">
+    <button mat-button cdkFocusInitial (click)="submit()" class="white-button" style="margin: auto !important;">Submit</button>
+</div>

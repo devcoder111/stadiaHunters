@@ -1,0 +1,16 @@
+<banner></banner>
+<div class="mdc-grid">
+
+    <h1 class="center">{{getLeaderboard()}}</h1>
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-desktop"></div>
+        <profile-score *ngIf="user" class="mdc-layout-grid__cell--span-12-phone mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-4-desktop" [type]="filter" [user]="user"></profile-score>
+    </div>
+    <leaderboard-header class="mdc-layout-grid__cell--span-12"></leaderboard-header>
+
+    <div scrollable (scrollPosition)="scrollHandler($event)" class="mdc-layout-grid__cell--span-12">
+        <leaderboard-user *ngFor="let user of page.data| async; let i = index" [filter]="filter" [index]="i + 1"  [data]="user"></leaderboard-user>
+        <p *ngIf="page.done | async" class="center"> _______</p>
+        <loading-spinner  *ngIf="page.loading | async" class="center"></loading-spinner>
+    </div>
+</div>

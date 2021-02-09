@@ -1,0 +1,56 @@
+<div> 
+    <mat-toolbar color="primary">
+      <div fxShow="true" fxHide.gt-sm="true">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+  
+      <a mat-button class="companyName" routerLink="/">
+        <img alt="Stadia Logo" src="../assets/images/text-logo.png" width="200"/>
+      </a>
+      <div fxShow="true" fxHide.lt-md="true">
+        <a mat-button routerLink="/leaderboard">Leaderboard</a>
+        <a mat-button routerLink="/games">Games</a>
+        <a mat-button routerLink="/stats/completed">Completions</a>
+      </div> 
+      <span class="example-spacer"></span>
+      <div fxShow="true" fxHide.lt-md="true">
+        <a *ngIf="!user" mat-button routerLink="/login">Login</a>
+        <div *ngIf="user" mat-button (click)="redirectUser()" class="avatar" [style.background-image]="'url(' + user.avatar + ')'"></div>
+      </div>
+  
+    </mat-toolbar>
+    <mat-sidenav-container fxFlexFill class="example-container">
+      <mat-sidenav color="primary" #sidenav fxLayout="column" mode="over" opened="false" fxHide.gt-sm="true">
+        <div fxLayout="column">
+          <a *ngIf="!user" class="sidebar-primary" routerLink="/login" (click)="sidenav.toggle()">Login</a>
+          <div *ngIf="user" (click)="redirectUser(); sidenav.toggle()" class="sidebar-primary row">
+            <div class="avatar" [style.background-image]="'url(' + user.avatar + ')'"></div>
+            <div class="username"> {{user.username}}</div>
+          </div>  
+        </div>
+        <div fxLayout="column">
+          <a class="sidebar-primary" routerLink="/games" (click)="sidenav.toggle()">Games</a>
+        </div>
+        <div class="separator"></div>
+        <div class="sidebar-primary">Leaderboard</div>
+        <div fxLayout="column">
+          <a class="sidebar-secondary" routerLink="/leaderboard/month" (click)="sidenav.toggle()">Month</a>
+          <a class="sidebar-secondary" routerLink="/leaderboard/year" (click)="sidenav.toggle()">Year</a>
+          <a class="sidebar-secondary" routerLink="/leaderboard/overall" (click)="sidenav.toggle()">Overall</a>
+        </div>
+        <div class="sidebar-primary">Statistics</div>
+        <div fxLayout="column">
+          <a class="sidebar-secondary" routerLink="/stats/completed" (click)="sidenav.toggle()">Completions</a>
+          <a class="sidebar-secondary" routerLink="/stats/owned" (click)="sidenav.toggle()">Most Owned</a>
+          <a class="sidebar-secondary" routerLink="/stats/month" (click)="sidenav.toggle()">Most Played - Month</a>
+          <a class="sidebar-secondary" routerLink="/stats/played" (click)="sidenav.toggle()">Most Played - Overall</a>
+        </div>
+      </mat-sidenav>
+      <mat-sidenav-content fxFlexFill>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    <app-footer></app-footer>
+  </div>

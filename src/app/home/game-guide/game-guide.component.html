@@ -1,0 +1,12 @@
+<a [id]="game._id" routerLink="{{buildRoute()}}" (click)="changeGame()">
+    <div class="game-card" style="height: 10rem;">
+        <div class="game-card_background" [style.background-image]="'url(' + game.banner + ')'">
+            <div class="game-card_shade">
+                <div class="game-card_title">
+                    <div class="header">{{ game.name }}</div>
+                    <div class="subtitle">Achievement Guide</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>

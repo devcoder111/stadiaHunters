@@ -1,0 +1,22 @@
+<h1 *ngIf="guide.type == 'header' && guide.text">
+    {{guide.text}}
+</h1>
+<h2 *ngIf="guide.type == 'title' && guide.text">
+    {{guide.text}}
+</h2>
+<pre *ngIf="guide.type == 'text' && guide.text" class="guide-text" [innerHTML]="guide.text"></pre>
+<pre *ngIf="guide.type == 'html' && guide.text" class="guide-text" [innerHTML]="guide.text"></pre>
+<div *ngIf="guide.type == 'image' && guide.text">
+    <achievement-media [media]="guide.text" [isVideo]="false"></achievement-media>
+</div>
+<div *ngIf="guide.type == 'video' && guide.text">
+    <achievement-media [media]="guide.text" [isVideo]="true"></achievement-media>
+</div>
+
+<div *ngIf="guide.type == 'link' && guide.text">
+    <a mat-raised-button [href]="guide.text" target="_blank" class="white-button"> <mat-icon>insert_link</mat-icon> Link</a>
+</div>
+<div *ngIf="guide.type == 'state-share' && guide.text">
+    <a mat-raised-button [href]="guide.text" target="_blank" class="white-button"> <img src="../assets/images/stadia.png" width="24"/> State Share</a>
+</div>
+

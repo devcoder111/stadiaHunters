@@ -1,0 +1,16 @@
+<a [id]="game._id" routerLink="{{buildRoute()}}" (click)="changeGame()">
+    <div class="game-card">
+        <div class="game-card_background" [style.background-image]="'url(' + game.banner + ')'">
+            <div class="game-card_shade">
+                <div class="game-card_title">{{ game.name }}</div>
+                <div class="game-card_legend">
+                    <div *ngIf="game.achievements > 0"><i class="material-icons md-16">emoji_events</i><span>{{ game.achievements}}</span></div>
+                    <div *ngIf="game.achievements_secret > 0"><i class="material-icons md-16">help_outline</i><span>{{ game.achievements_secret}}</span></div>
+                    <div *ngIf="game.achievements_bugged > 0"><i class="material-icons md-16">error_outline</i><span>{{ game.achievements_bugged}}</span></div>
+                    <div *ngIf="game.achievements_timed > 0"><i class="material-icons md-16">date_range</i><span>{{ game.achievements_timed}}</span></div>
+                    <div *ngIf="game.achievements_dlc > 0"><span class="dlc-icon">DLC</span><span>{{ game.achievements_dlc}}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</a>
